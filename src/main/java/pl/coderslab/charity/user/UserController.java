@@ -22,20 +22,28 @@ public class UserController {
     }
 
     @GetMapping("/create")
-    @ResponseBody
-    public String createUser() {
+    public String createUser(Model model) {
         User user = new User();
-        user.setUsername("user");
-        user.setPassword("user");
+        model.addAttribute("user", user);
+        return "authentication/register";
+    }
+
+    @PostMapping("/create")
+    public String createUser(@Valid User user, BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "authentication/register";
+        }
+
         userService.saveUser(user);
-        return "zrobione";
+        return "redirect:/login";
     }
 
     @GetMapping("/check")
     @ResponseBody
     public String check(@AuthenticationPrincipal CurrentUser customUser) {
         User entityUser = customUser.getUser();
-        return "You are " + entityUser.getUsername();
+        return "You are " + entityUser.getEmail();
     }
 
 }

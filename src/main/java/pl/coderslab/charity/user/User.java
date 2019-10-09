@@ -5,6 +5,7 @@ import pl.coderslab.charity.role.Role;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -16,14 +17,12 @@ public class User {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    @NotBlank
-    private String username;
-
     @Email
     @NotBlank
     private String email;
 
     @NotBlank
+    @Size(min = 5)
     private String password;
 
     private int enabled;
@@ -39,14 +38,6 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getPassword() {
