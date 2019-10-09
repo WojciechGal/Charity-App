@@ -20,6 +20,12 @@
     <h2>Załóż konto</h2>
     <form:form method="post" modelAttribute="user">
         <div class="form-group">
+            <input type="text" name="name" placeholder="Imię" />
+        </div>
+        <div class="form-group">
+            <input type="text" name="lastName" placeholder="Nazwisko" />
+        </div>
+        <div class="form-group">
             <input type="email" name="email" placeholder="Email" />
         </div>
         <div class="form-group">
