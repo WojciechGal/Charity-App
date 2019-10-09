@@ -43,7 +43,7 @@ public class UserController {
     @ResponseBody
     public String check(@AuthenticationPrincipal CurrentUser customUser) {
         User entityUser = customUser.getUser();
-        return "You are " + entityUser.getEmail();
+        return "You are " + entityUser.getEmail() + ", and you are authenticated as " + entityUser.getRoles();
     }
 
 }
