@@ -16,7 +16,7 @@ public class FormController {
     private UserService userService;
 
     @GetMapping("/form")
-    public String formDashboard(@AuthenticationPrincipal CurrentUser currentUser, Model model) {
+    public String form(@AuthenticationPrincipal CurrentUser currentUser, Model model) {
         User user = currentUser.getUser();
         model.addAttribute("user", userService.findByUserEmail(user.getEmail()));
         return "form";
