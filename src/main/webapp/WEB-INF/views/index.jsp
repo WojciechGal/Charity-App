@@ -90,16 +90,15 @@
             </c:if>
 
             <c:if test="${not empty institutions}">
-
                 <li>
-                    <c:forEach items="${institutions}" var="institution">
+                    <c:forEach items="${institutions}" var="institution" varStatus="stat">
                         <div class="col">
                             <div class="title">${institution.name}</div>
                             <div class="subtitle">${institution.description}</div>
                         </div>
-                        <c:if test="${institution.id % 2 == 0}">
-                            </li>
-                            <li>
+                        <c:if test="${stat.count % 2 == 0 && !stat.last}">
+                </li>
+                <li>
                         </c:if>
                     </c:forEach>
                 </li>
