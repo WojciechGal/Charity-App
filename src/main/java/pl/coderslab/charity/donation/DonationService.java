@@ -28,4 +28,8 @@ public class DonationService {
     public Donation findDonationById(Long id) {
         return donationRepository.findById(id).orElse(null);
     }
+
+    public Long countAllQuantities() {
+        return donationRepository.countAllQuantities();
+    }
 }

@@ -27,6 +27,9 @@ public class HomeController {
         Long supportedInstitutions = institutionService.checkNumberOfSupportedInstitutions();
         model.addAttribute("suppInst", supportedInstitutions);
 
+        Long allGivenQuantities = institutionService.checkNumberOfSupportedInstitutions();
+        model.addAttribute("allQuant", allGivenQuantities);
+
         return "index";
     }
 }

@@ -19,11 +19,10 @@
 <section class="stats">
     <div class="container container--85">
         <div class="stats--item">
-            <em>13</em>
+            <em>${allQuant}</em>
 
             <h3>Oddanych worków</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
-                tempora!</p>
+            <p>I ty możesz zwiększyć sumę oddanych worków oddając dowolną ilość darów!</p>
         </div>
 
         <div class="stats--item">
