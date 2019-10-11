@@ -27,10 +27,9 @@
         </div>
 
         <div class="stats--item">
-            <em>5</em>
+            <em>${suppInst}</em>
             <h3>Wspartych organizacji</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
-                quam.</p>
+            <p>I ty możesz wesprzeć dowolnie wybraną przez siebie organizację!</p>
         </div>
 
     </div>

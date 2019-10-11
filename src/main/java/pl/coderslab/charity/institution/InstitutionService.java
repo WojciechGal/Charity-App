@@ -28,4 +28,8 @@ public class InstitutionService {
     public Institution findInstitutionById(Long id) {
         return institutionRepository.findById(id).orElse(null);
     }
+
+    public Long checkNumberOfSupportedInstitutions() {
+        return institutionRepository.countInstitutionsByDonationsNotNull();
+    }
 }
