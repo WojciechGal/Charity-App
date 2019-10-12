@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -14,6 +16,11 @@ public class DonationService {
     private DonationRepository donationRepository;
 
     public void saveDonation(Donation donation) {
+
+        ///naprawa ręczna czasu UTC odejmującego od 1 do 2 godzin
+        ///nie powinno być problematyczne, ponieważ local date przechowuje tylko datę
+        donation.setPickUpDate(donation.getPickUpDate().plusDays(1));
+
         donationRepository.save(donation);
     }
 
