@@ -12,8 +12,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -50,18 +51,19 @@ public class Donation {
 
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Temporal(TemporalType.DATE)
-    private Date pickUpDate;
+    private LocalDate pickUpDate;
 
     @NotNull
     @DateTimeFormat(pattern = "HH:mm")
-    @Temporal(TemporalType.TIME)
-    private Date pickUpTime;
+    private LocalTime pickUpTime;
+
+    @NotNull
+    @Pattern(regexp = "^[0-9]{9}$")
+    private String phoneNumber;
 
     private String pickUpComment;
 
     @ManyToOne
     private User user;
     //może być null (niezalogowany użytkownik)
-
 }
