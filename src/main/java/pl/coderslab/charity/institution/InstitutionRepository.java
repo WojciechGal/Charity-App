@@ -5,6 +5,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface InstitutionRepository extends JpaRepository<Institution, Long> {
-
-    Long countInstitutionsByDonationsNotNull();
 }

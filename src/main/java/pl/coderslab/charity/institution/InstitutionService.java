@@ -3,6 +3,7 @@ package pl.coderslab.charity.institution;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.coderslab.charity.donation.Donation;
 
 import java.util.List;
 
@@ -30,6 +31,14 @@ public class InstitutionService {
     }
 
     public Long checkNumberOfSupportedInstitutions() {
-        return institutionRepository.countInstitutionsByDonationsNotNull();
+        Long[] tab = {0L};
+        List<Institution> institutions = institutionRepository.findAll();
+        institutions.forEach(ins -> {
+            List<Donation> donations = ins.getDonations();
+            if (donations.size() == 0) {
+                tab[0]++;
+            }
+        });
+        return tab[0];
     }
 }
