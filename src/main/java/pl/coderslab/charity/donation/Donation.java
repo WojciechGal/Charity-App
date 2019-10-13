@@ -10,6 +10,7 @@ import pl.coderslab.charity.user.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
@@ -31,7 +32,7 @@ public class Donation {
     @Range(min = 1, max = 1000)
     private Integer quantity;
 
-    @NotNull
+    @NotEmpty
     @ManyToMany
     private List<Category> categories = new ArrayList<>();
 
@@ -45,7 +46,6 @@ public class Donation {
     @NotBlank
     private String city;
 
-    @NotBlank
     @Pattern(regexp = "^(\\d{2}-\\d{3})$")
     private String zipCode;
 

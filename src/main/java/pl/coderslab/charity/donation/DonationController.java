@@ -34,8 +34,8 @@ public class DonationController {
     private DonationService donationService;
 
     @GetMapping("/form")
-    public String formAction(@AuthenticationPrincipal CurrentUser currentUser, Model model) {
-        User user = currentUser.getUser();
+    public String formAction(@AuthenticationPrincipal CurrentUser loggedUser, Model model) {
+        User user = loggedUser.getUser();
         model.addAttribute("user", userService.findByUserEmail(user.getEmail()));
 
         Donation donation = new Donation();
@@ -51,7 +51,17 @@ public class DonationController {
     }
 
     @PostMapping("/form")
-    public String formAction(@Valid Donation donation, BindingResult result, @AuthenticationPrincipal CurrentUser loggedUser) {
+    public String formAction(Model model, @Valid Donation donation, BindingResult result,
+                             @AuthenticationPrincipal CurrentUser loggedUser) {
+
+        User user = loggedUser.getUser();
+        model.addAttribute("user", userService.findByUserEmail(user.getEmail()));
+
+        List<Institution> institutions = institutionService.getAllInstitutions();
+        model.addAttribute("institutions", institutions);
+
+        List<Category> categories = categoryService.getAllCategories();
+        model.addAttribute("categories", categories);
 
         if (result.hasErrors()) {
             return "form";
