@@ -11,6 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Strona użytkownika</title>
     <link rel="stylesheet" href="../../resources/css/style.css"/>
+    <link rel="stylesheet" href="../../resources/css/errors.css"/>
 </head>
 <body>
 
@@ -55,6 +56,7 @@
                         </label>
                     </div>
                 </c:forEach>
+                <form:errors path="categories" cssClass="error form-group" element="div"/>
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn next-step">Dalej</button>
@@ -68,9 +70,10 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input type="number" path="quantity" min="1" step="1"/>
+                        <form:input path="quantity" min="1" step="1"/>
                     </label>
                 </div>
+                <form:errors path="quantity" cssClass="error form-group" element="div"/>
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
@@ -95,6 +98,7 @@
                         </label>
                     </div>
                 </c:forEach>
+                <form:errors path="institution" cssClass="error form-group" element="div"/>
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
@@ -112,22 +116,26 @@
                         <div class="form-group form-group--inline">
                             <label> Ulica <form:input path="street"/> </label>
                         </div>
+                        <form:errors path="street" cssClass="error form-group" element="div"/>
 
                         <div class="form-group form-group--inline">
                             <label> Miasto <form:input path="city"/> </label>
                         </div>
+                        <form:errors path="city" cssClass="error form-group" element="div"/>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Kod pocztowy <form:input path="zipCode"/>
                             </label>
                         </div>
+                        <form:errors path="zipCode" cssClass="error form-group" element="div"/>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Numer telefonu <form:input path="phoneNumber"/>
                             </label>
                         </div>
+                        <form:errors path="phoneNumber" cssClass="error form-group" element="div"/>
                     </div>
 
                     <div class="form-section--column">
@@ -135,10 +143,12 @@
                         <div class="form-group form-group--inline">
                             <label> Data <form:input type="date" path="pickUpDate"/> </label>
                         </div>
+                        <form:errors path="pickUpDate" cssClass="error form-group" element="div"/>
 
                         <div class="form-group form-group--inline">
                             <label> Godzina <form:input type="time" path="pickUpTime"/> </label>
                         </div>
+                        <form:errors path="pickUpTime" cssClass="error form-group" element="div"/>
 
                         <div class="form-group form-group--inline">
                             <label>
