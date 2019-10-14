@@ -40,6 +40,7 @@ public class Donation {
     @ManyToOne
     private Institution institution;
 
+    //dodać regex ulicy
     @NotBlank
     private String street;
 
