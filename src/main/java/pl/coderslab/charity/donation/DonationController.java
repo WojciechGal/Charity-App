@@ -38,14 +38,7 @@ public class DonationController {
         User user = loggedUser.getUser();
         model.addAttribute("user", userService.findByUserEmail(user.getEmail()));
 
-        Donation donation = new Donation();
-        model.addAttribute("donation", donation);
-
-        List<Institution> institutions = institutionService.getAllInstitutions();
-        model.addAttribute("institutions", institutions);
-
-        List<Category> categories = categoryService.getAllCategories();
-        model.addAttribute("categories", categories);
+        setCategoriesAndInstitutionsAndDonation(model);
 
         return "form";
     }
@@ -73,4 +66,45 @@ public class DonationController {
 
         return "redirect:/";
     }
+
+    @GetMapping("/unloggedForm")
+    public String unloggedFormAction(Model model) {
+
+        setCategoriesAndInstitutionsAndDonation(model);
+
+        return "unloggedForm";
+    }
+
+    @PostMapping("/unloggedForm")
+    public String unloggedFormAction(@Valid Donation donation, BindingResult result, Model model) {
+
+        List<Institution> institutions = institutionService.getAllInstitutions();
+        model.addAttribute("institutions", institutions);
+
+        List<Category> categories = categoryService.getAllCategories();
+        model.addAttribute("categories", categories);
+
+        if (result.hasErrors()) {
+            return "unloggedForm";
+        }
+
+        donationService.saveDonation(donation);
+
+        return "redirect:/";
+    }
+
+    ////////////////////////////////////////////////////////////////////
+
+    private void setCategoriesAndInstitutionsAndDonation(Model model) {
+
+        Donation donation = new Donation();
+        model.addAttribute("donation", donation);
+
+        List<Institution> institutions = institutionService.getAllInstitutions();
+        model.addAttribute("institutions", institutions);
+
+        List<Category> categories = categoryService.getAllCategories();
+        model.addAttribute("categories", categories);
+    }
+
 }
