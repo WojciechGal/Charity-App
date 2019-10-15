@@ -11,19 +11,19 @@ import pl.coderslab.charity.donation.DonationService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping(path = "/admin")
 public class AdminDashboardController {
 
     @Autowired
     private DonationService donationService;
 
-    @GetMapping("/dashboard")
+    @GetMapping(path = "/dashboard")
     public String adminDashboard(Model model) {
 
         List<Donation> donations = donationService.getAllDonations();
 
         model.addAttribute("donations", donations);
 
-        return "adminDashboard";
+        return "admin-sb-2/index";
     }
 }
