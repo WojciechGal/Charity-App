@@ -35,7 +35,7 @@ public class InstitutionService {
         List<Institution> institutions = institutionRepository.findAll();
         institutions.forEach(ins -> {
             List<Donation> donations = ins.getDonations();
-            if (donations.size() == 0) {
+            if (donations.size() != 0) {
                 tab[0]++;
             }
         });

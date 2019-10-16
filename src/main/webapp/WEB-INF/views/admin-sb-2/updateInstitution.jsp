@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -351,90 +352,58 @@
             </nav>
             <!-- End of Topbar -->
 
-            <!-- Begin Page Content -->
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Instytucje</h1>
-                <p class="mb-4">Organizacje charytatywne na rzecz, których można wysyłać paczki z nieużywanymi rzeczami.</p>
+                <h1 class="h3 mb-2 text-gray-800">Edytowanie instytucji</h1>
+                <p class="mb-4">Edytuj zaufaną instytucję, na poczet której będzie można oddawać paczki z nieużywanymi rzeczami.</p>
 
-                <!-- DataTales Example -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Wszystkie dostępne instytucje</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                <tr>
-                                    <th>Numer</th>
-                                    <th>Nazwa</th>
-                                    <th>Opis</th>
-                                    <th>Wysłane paczki</th>
-                                    <th colspan="2">Akcje</th>
-                                </tr>
-                                </thead>
-                                <tfoot>
-                                <tr>
-                                    <th>Numer</th>
-                                    <th>Nazwa</th>
-                                    <th>Opis</th>
-                                    <th>Wysłane paczki</th>
-                                    <th colspan="2">Akcje</th>
-                                </tr>
-                                </tfoot>
-                                <tbody>
-                                <c:if test="${empty institutions}">
-                                    <tr>
-                                        <td colspan="5">Brak danych</td>
-                                    </tr>
-                                </c:if>
-                                <c:if test="${not empty institutions}">
-                                    <c:forEach items="${institutions}" var="institution" varStatus="stat">
-                                        <tr>
-                                            <td>${stat.count}</td>
-                                            <td>${institution.name}</td>
-                                            <td>${institution.description}</td>
-                                            <c:if test="${empty institution.donations}">
-                                                <td>Brak</td>
-                                            </c:if>
-                                            <c:if test="${not empty institution.donations}">
-                                                <td>
-                                                    Paczka o numerze seryjnym:
-                                                    <c:forEach items="${institution.donations}" var="don">
-                                                        -${don.id}-
-                                                    </c:forEach>
-                                                </td>
-                                            </c:if>
-                                            <td width="16%">
-                                                <div class="my-1">
-                                                <a href="/admin/updateInstitution/${institution.id}" class="btn btn-warning btn-icon-split">
-                                                    <span class="icon text-white-50">
-                                                      <i class="fas fa-exclamation-triangle"></i>
-                                                    </span>
-                                                    <span class="text">Edytuj</span>
-                                                </a>
-                                                    <div class="my-2"></div>
-                                                <a href="/admin/deleteInstitution/${institution.id}" class="btn btn-danger btn-icon-split">
-                                                    <span class="icon text-white-50">
-                                                      <i class="fas fa-trash"></i>
-                                                    </span>
-                                                    <span class="text">Usuń</span>
-                                                </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
-                                </c:if>
-                                </tbody>
-                            </table>
+                <!-- Content Row -->
+                <div class="row">
+
+                    <div class="col-xl-3 col-lg-7" style="position: absolute; left: 40%">
+
+                        <!-- Area Chart -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Edytuj instytucję</h6>
+                            </div>
+                            <div class="card-body">
+
+                                <form:form method="post" modelAttribute="institution">
+
+                                    <div class="my-2">
+                                        <label>Podaj nazwę:
+                                            <form:input path="name"/>
+                                            <form:errors path="name" cssStyle="color: red"/>
+                                        </label>
+                                    </div>
+
+                                    <div class="my-2">
+                                        <label>Podaj opis:
+                                            <form:input path="description"/>
+                                            <form:errors path="description" cssStyle="color: red"/>
+                                        </label>
+                                    </div>
+
+
+                                    <div class="my-2">
+                                        <form:button type="submit" class="btn btn-warning btn-icon-split">
+                                        <span class="icon text-white-50">
+                                              <i class="fas fa-exclamation-triangle"></i>
+                                        </span>
+                                            <span class="text">Edytuj</span>
+                                        </form:button>
+                                    </div>
+
+                                </form:form>
+                            </div>
                         </div>
+
                     </div>
                 </div>
 
             </div>
-            <!-- End page content -->
 
         </div>
         <!-- End of Main Content -->

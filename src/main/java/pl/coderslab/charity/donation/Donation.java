@@ -41,7 +41,7 @@ public class Donation {
     private Institution institution;
 
     @NotBlank
-    @Pattern(regexp = "^([a-z]+|[A-Z]+) \\d+$")
+    @Pattern(regexp = "^(\\S.+)\\s+(\\d+|\\d+[A-Z]+)$")
     private String street;
 
     @NotBlank

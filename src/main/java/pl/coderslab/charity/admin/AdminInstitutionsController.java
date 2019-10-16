@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.institution.Institution;
@@ -46,6 +47,34 @@ public class AdminInstitutionsController {
         }
 
         institutionService.saveInstitution(institution);
+        return "redirect:/admin/institutions";
+    }
+
+    @GetMapping("/updateInstitution/{id}")
+    public String updateInstitution(Model model, @PathVariable Long id) {
+
+        Institution institution = institutionService.findInstitutionById(id);
+        model.addAttribute("institution", institution);
+
+        return "admin-sb-2/updateInstitution";
+    }
+
+    @PostMapping("/updateInstitution/{id}")
+    public String updateInstitution(@Valid Institution institution, BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "admin-sb-2/updateInstitution";
+        }
+
+        institutionService.saveInstitution(institution);
+        return "redirect:/admin/institutions";
+    }
+
+    @GetMapping("/deleteInstitution/{id}")
+    public String addInstitution(@PathVariable Long id) {
+
+        institutionService.deleteInstitution(id);
+
         return "redirect:/admin/institutions";
     }
 }
