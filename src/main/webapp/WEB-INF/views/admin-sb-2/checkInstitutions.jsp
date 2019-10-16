@@ -87,9 +87,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Akcje:</h6>
                     <a class="collapse-item active" href="institutions">Sprawdź</a>
-                    <a class="collapse-item" href="cards.html">Dodaj</a>
-                    <a class="collapse-item" href="cards.html">Edytuj</a>
-                    <a class="collapse-item" href="cards.html">Usuń</a>
+                    <a class="collapse-item" href="cards.html">Dodaj nową</a>
                 </div>
             </div>
         </li>
@@ -374,6 +372,7 @@
                                     <th>Nazwa</th>
                                     <th>Opis</th>
                                     <th>Wysłane paczki</th>
+                                    <th colspan="2">Akcje</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
@@ -382,12 +381,13 @@
                                     <th>Nazwa</th>
                                     <th>Opis</th>
                                     <th>Wysłane paczki</th>
+                                    <th colspan="2">Akcje</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
                                 <c:if test="${empty institutions}">
                                     <tr>
-                                        <td colspan="4">Brak danych</td>
+                                        <td colspan="5">Brak danych</td>
                                     </tr>
                                 </c:if>
                                 <c:if test="${not empty institutions}">
@@ -407,6 +407,23 @@
                                                     </c:forEach>
                                                 </td>
                                             </c:if>
+                                            <td width="16%">
+                                                <div class="my-1">
+                                                <a href="#" class="btn btn-warning btn-icon-split">
+                                                    <span class="icon text-white-50">
+                                                      <i class="fas fa-exclamation-triangle"></i>
+                                                    </span>
+                                                    <span class="text">Edytuj</span>
+                                                </a>
+                                                    <div class="my-2"></div>
+                                                <a href="#" class="btn btn-danger btn-icon-split">
+                                                    <span class="icon text-white-50">
+                                                      <i class="fas fa-trash"></i>
+                                                    </span>
+                                                    <span class="text">Usuń</span>
+                                                </a>
+                                                </div>
+                                            </td>
                                         </tr>
                                     </c:forEach>
                                 </c:if>

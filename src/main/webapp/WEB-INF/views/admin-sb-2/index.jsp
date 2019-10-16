@@ -84,9 +84,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Akcje:</h6>
                     <a class="collapse-item" href="institutions">Sprawdź</a>
-                    <a class="collapse-item" href="cards.html">Dodaj</a>
-                    <a class="collapse-item" href="cards.html">Edytuj</a>
-                    <a class="collapse-item" href="cards.html">Usuń</a>
+                    <a class="collapse-item" href="cards.html">Dodaj nową</a>
                 </div>
             </div>
         </li>
