@@ -372,7 +372,7 @@
                                     <th>Nazwa</th>
                                     <th>Opis</th>
                                     <th>Wysłane paczki</th>
-                                    <th colspan="2">Akcje</th>
+                                    <th>Akcje</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
@@ -381,7 +381,7 @@
                                     <th>Nazwa</th>
                                     <th>Opis</th>
                                     <th>Wysłane paczki</th>
-                                    <th colspan="2">Akcje</th>
+                                    <th>Akcje</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
@@ -409,19 +409,19 @@
                                             </c:if>
                                             <td width="16%">
                                                 <div class="my-1">
-                                                <a href="/admin/updateInstitution/${institution.id}" class="btn btn-warning btn-icon-split">
+                                                    <a href="/admin/updateInstitution/${institution.id}" class="btn btn-warning btn-icon-split">
                                                     <span class="icon text-white-50">
                                                       <i class="fas fa-exclamation-triangle"></i>
                                                     </span>
-                                                    <span class="text">Edytuj</span>
-                                                </a>
+                                                        <span class="text">Edytuj</span>
+                                                    </a>
                                                     <div class="my-2"></div>
-                                                <a href="/admin/deleteInstitution/${institution.id}" class="btn btn-danger btn-icon-split">
+                                                    <a href="/admin/deleteInstitution/${institution.id}" class="btn btn-danger btn-icon-split">
                                                     <span class="icon text-white-50">
                                                       <i class="fas fa-trash"></i>
                                                     </span>
-                                                    <span class="text">Usuń</span>
-                                                </a>
+                                                        <span class="text">Usuń</span>
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>
