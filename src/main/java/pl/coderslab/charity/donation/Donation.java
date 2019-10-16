@@ -58,7 +58,6 @@ public class Donation {
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime pickUpTime;
 
-    @NotNull
     @Pattern(regexp = "^[0-9]{9}$")
     private String phoneNumber;
 

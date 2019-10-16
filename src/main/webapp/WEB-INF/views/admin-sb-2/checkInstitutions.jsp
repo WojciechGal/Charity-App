@@ -86,8 +86,8 @@
             <div id="collapseInst" class="collapse show" aria-labelledby="headingInst" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Akcje:</h6>
-                    <a class="collapse-item active" href="institutions">Sprawdź</a>
-                    <a class="collapse-item" href="cards.html">Dodaj nową</a>
+                    <a class="collapse-item" href="/admin/addInstitution">Dodaj nową</a>
+                    <a class="collapse-item active" href="/admin/institutions">Sprawdź</a>
                 </div>
             </div>
         </li>
