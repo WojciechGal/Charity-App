@@ -92,6 +92,34 @@
             </div>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Użytkownicy</span>
+            </a>
+            <div id="collapseUser" class="collapse" aria-labelledby="headingUser" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Akcje:</h6>
+                    <a class="collapse-item" href="/admin/addUser">Dodaj nowego</a>
+                    <a class="collapse-item" href="/admin/users">Sprawdź</a>
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAdmin" aria-expanded="true" aria-controls="collapseAdmin">
+                <i class="fas fa-fw fa-user-astronaut"></i>
+                <span>Administratorzy</span>
+            </a>
+            <div id="collapseAdmin" class="collapse" aria-labelledby="headingAdmin" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Akcje:</h6>
+                    <a class="collapse-item" href="/admin/addAdmin">Dodaj nowego</a>
+                    <a class="collapse-item" href="/admin/admins">Sprawdź</a>
+                </div>
+            </div>
+        </li>
+
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
