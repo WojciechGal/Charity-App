@@ -1,6 +1,7 @@
 package pl.coderslab.charity.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.charity.user.CurrentUser;
 import pl.coderslab.charity.user.User;
 import pl.coderslab.charity.user.UserServiceImpl;
 
@@ -71,7 +73,13 @@ public class AdminAdminsController {
     }
 
     @GetMapping("/deleteAdmin/{id}")
-    public String addInstitution(@PathVariable Long id) {
+    public String deleteAdmin(@PathVariable Long id, @AuthenticationPrincipal CurrentUser loggedUser) {
+
+        Long idLogged = loggedUser.getUser().getId();
+
+        if (idLogged.equals(id)) {
+            return "redirect:/admin/deleteMyself";
+        }
 
         userService.deleteUserById(id);
 
