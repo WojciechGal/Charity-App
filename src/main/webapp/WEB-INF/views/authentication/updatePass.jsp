@@ -9,7 +9,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Rejestracja</title>
+    <title>Zmiana hasła</title>
     <link rel="stylesheet" href="../../../resources/css/style.css" />
 </head>
 <body>
@@ -17,39 +17,25 @@
 <%@include file="../fragments/header.jspf"%>
 
 <section class="login-page">
-    <h2>Załóż konto</h2>
+    <h2>Zmień hasło</h2>
     <form:form method="post" modelAttribute="user">
         <div class="form-group">
-            <form:input type="text" path="name" placeholder="Imię" />
-            <div>
-                <form:errors path="name" cssStyle="color: red"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <form:input type="text" path="lastName" placeholder="Nazwisko" />
-            <div>
-                <form:errors path="lastName" cssStyle="color: red"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <form:input type="email" path="email" placeholder="Email" />
-            <div>
-                <form:errors path="email" cssStyle="color: red"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <form:input type="password" path="password" placeholder="Hasło" />
+            <form:input type="password" path="password"/>
             <div>
                 <form:errors path="password" cssStyle="color: red"/>
             </div>
         </div>
-        <div class="form-group">
-            <input type="password" name="password2" placeholder="Powtórz hasło" />
+        <div>
+            <form:hidden path="id" value="${user.id}"/>
+            <form:hidden path="email" value="${user.email}"/>
+            <form:hidden path="enabled" value="${user.enabled}"/>
+            <form:hidden path="lastName" value="${user.lastName}"/>
+            <form:hidden path="name" value="${user.name}"/>
         </div>
 
         <div class="form-group form-group--buttons">
             <a href="login.html" class="btn btn--without-border">Zaloguj się</a>
-            <button class="btn" type="submit">Załóż konto</button>
+            <button class="btn" type="submit">Aktualizuj</button>
         </div>
     </form:form>
 </section>
@@ -59,3 +45,4 @@
 <script src="<c:url value="../../../resources/js/app.js"/>"></script>
 </body>
 </html>
+

@@ -3,13 +3,14 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="input" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Rejestracja</title>
+    <title>Zmiana danych</title>
     <link rel="stylesheet" href="../../../resources/css/style.css" />
 </head>
 <body>
@@ -17,39 +18,35 @@
 <%@include file="../fragments/header.jspf"%>
 
 <section class="login-page">
-    <h2>Załóż konto</h2>
+    <h2>Zmień dane</h2>
     <form:form method="post" modelAttribute="user">
         <div class="form-group">
-            <form:input type="text" path="name" placeholder="Imię" />
+            <form:input type="text" path="name"/>
             <div>
                 <form:errors path="name" cssStyle="color: red"/>
             </div>
         </div>
         <div class="form-group">
-            <form:input type="text" path="lastName" placeholder="Nazwisko" />
+            <form:input type="text" path="lastName"/>
             <div>
                 <form:errors path="lastName" cssStyle="color: red"/>
             </div>
         </div>
         <div class="form-group">
-            <form:input type="email" path="email" placeholder="Email" />
+            <form:input type="email" path="email"/>
             <div>
                 <form:errors path="email" cssStyle="color: red"/>
             </div>
         </div>
-        <div class="form-group">
-            <form:input type="password" path="password" placeholder="Hasło" />
             <div>
-                <form:errors path="password" cssStyle="color: red"/>
+                <form:hidden path="password" value="${user.password}"/>
+                <form:hidden path="id" value="${user.id}"/>
+                <form:hidden path="enabled" value="${user.enabled}"/>
             </div>
-        </div>
-        <div class="form-group">
-            <input type="password" name="password2" placeholder="Powtórz hasło" />
-        </div>
 
         <div class="form-group form-group--buttons">
             <a href="login.html" class="btn btn--without-border">Zaloguj się</a>
-            <button class="btn" type="submit">Załóż konto</button>
+            <button class="btn" type="submit">Aktualizuj</button>
         </div>
     </form:form>
 </section>
