@@ -100,7 +100,6 @@
             <div id="collapseUser" class="collapse" aria-labelledby="headingUser" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Akcje:</h6>
-                    <a class="collapse-item" href="/admin/addUser">Dodaj nowego</a>
                     <a class="collapse-item" href="/admin/users">Sprawdź</a>
                 </div>
             </div>

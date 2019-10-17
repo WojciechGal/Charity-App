@@ -79,29 +79,29 @@
         </li>
 
         <!-- Nav Item - Institutions collapse menu -->
-        <li class="nav-item active">
-            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseInst" aria-expanded="true" aria-controls="collapseInst">
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInst" aria-expanded="true" aria-controls="collapseInst">
                 <i class="fas fa-fw fa-wheelchair"></i>
                 <span>Instytucje</span>
             </a>
-            <div id="collapseInst" class="collapse show" aria-labelledby="headingInst" data-parent="#accordionSidebar">
+            <div id="collapseInst" class="collapse" aria-labelledby="headingInst" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Akcje:</h6>
                     <a class="collapse-item" href="/admin/addInstitution">Dodaj nową</a>
-                    <a class="collapse-item active" href="/admin/institutions">Sprawdź</a>
+                    <a class="collapse-item" href="/admin/institutions">Sprawdź</a>
                 </div>
             </div>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
+        <li class="nav-item active">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
                 <i class="fas fa-fw fa-user"></i>
                 <span>Użytkownicy</span>
             </a>
-            <div id="collapseUser" class="collapse" aria-labelledby="headingUser" data-parent="#accordionSidebar">
+            <div id="collapseUser" class="collapse show" aria-labelledby="headingUser" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Akcje:</h6>
-                    <a class="collapse-item" href="/admin/users">Sprawdź</a>
+                    <a class="collapse-item active" href="/admin/users">Sprawdź</a>
                 </div>
             </div>
         </li>
@@ -388,7 +388,7 @@
                 <!-- Content Row -->
                 <div class="row">
 
-                    <div class="col-xl-3 col-lg-7" style="position: absolute; left: 40%">
+                    <div class="col-xl-4 col-lg-7" style="position: absolute; left: 40%">
 
                         <!-- Area Chart -->
                         <div class="card shadow mb-4">
@@ -397,19 +397,41 @@
                             </div>
                             <div class="card-body">
 
-                                <form:form method="post" modelAttribute="institution">
+                                <form:form method="post" modelAttribute="user">
 
                                     <div class="my-2">
-                                        <label>Podaj nazwę:
+                                        <label>Podaj imię:
                                             <form:input path="name"/>
-                                            <form:errors path="name" cssStyle="color: red"/>
+                                            <div>
+                                                <form:errors path="name" cssStyle="color: red"/>
+                                            </div>
                                         </label>
                                     </div>
 
                                     <div class="my-2">
-                                        <label>Podaj opis:
-                                            <form:input path="description"/>
-                                            <form:errors path="description" cssStyle="color: red"/>
+                                        <label>Podaj nazwisko:
+                                            <form:input path="lastName"/>
+                                            <div>
+                                                <form:errors path="lastName" cssStyle="color: red"/>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div class="my-2">
+                                        <label>Podaj email:
+                                            <form:input path="email"/>
+                                            <div>
+                                                <form:errors path="email" cssStyle="color: red"/>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div class="my-2">
+                                        <label>Podaj hasło:
+                                            <form:password path="password"/>
+                                            <div>
+                                                <form:errors path="password" cssStyle="color: red"/>
+                                            </div>
                                         </label>
                                     </div>
 
@@ -495,3 +517,4 @@
 </body>
 
 </html>
+

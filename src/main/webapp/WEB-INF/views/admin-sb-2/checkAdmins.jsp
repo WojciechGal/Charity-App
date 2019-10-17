@@ -100,7 +100,6 @@
             <div id="collapseUser" class="collapse" aria-labelledby="headingUser" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Akcje:</h6>
-                    <a class="collapse-item" href="/admin/addUser">Dodaj nowego</a>
                     <a class="collapse-item" href="/admin/users">Sprawdź</a>
                 </div>
             </div>
@@ -389,7 +388,7 @@
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Wszystkie dostępni administratorzy</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Wszyscy dostępni administratorzy</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,17 +14,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>SB Admin 2 - 404</title>
 
-    <!-- Custom fonts for this template -->
+    <!-- Custom fonts for this template-->
     <link href="../../../resources/admin-sb-2-resources-part/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
+    <!-- Custom styles for this template-->
     <link href="../../../resources/admin-sb-2-resources-part/css/sb-admin-2.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this page -->
-    <link href="../../../resources/admin-sb-2-resources-part/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -79,16 +75,16 @@
         </li>
 
         <!-- Nav Item - Institutions collapse menu -->
-        <li class="nav-item active">
-            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseInst" aria-expanded="true" aria-controls="collapseInst">
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInst" aria-expanded="true" aria-controls="collapseInst">
                 <i class="fas fa-fw fa-wheelchair"></i>
                 <span>Instytucje</span>
             </a>
-            <div id="collapseInst" class="collapse show" aria-labelledby="headingInst" data-parent="#accordionSidebar">
+            <div id="collapseInst" class="collapse" aria-labelledby="headingInst" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Akcje:</h6>
                     <a class="collapse-item" href="/admin/addInstitution">Dodaj nową</a>
-                    <a class="collapse-item active" href="/admin/institutions">Sprawdź</a>
+                    <a class="collapse-item" href="/admin/institutions">Sprawdź</a>
                 </div>
             </div>
         </li>
@@ -106,16 +102,16 @@
             </div>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAdmin" aria-expanded="true" aria-controls="collapseAdmin">
+        <li class="nav-item active">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseAdmin" aria-expanded="true" aria-controls="collapseAdmin">
                 <i class="fas fa-fw fa-user-astronaut"></i>
                 <span>Administratorzy</span>
             </a>
-            <div id="collapseAdmin" class="collapse" aria-labelledby="headingAdmin" data-parent="#accordionSidebar">
+            <div id="collapseAdmin" class="collapse show" aria-labelledby="headingAdmin" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Akcje:</h6>
                     <a class="collapse-item" href="/admin/addAdmin">Dodaj nowego</a>
-                    <a class="collapse-item" href="/admin/admins">Sprawdź</a>
+                    <a class="collapse-item active" href="/admin/admins">Sprawdź</a>
                 </div>
             </div>
         </li>
@@ -379,58 +375,19 @@
             </nav>
             <!-- End of Topbar -->
 
+            <!-- Begin Page Content -->
             <div class="container-fluid">
 
-                <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Edytowanie instytucji</h1>
-                <p class="mb-4">Edytuj zaufaną instytucję, na poczet której będzie można oddawać paczki z nieużywanymi rzeczami.</p>
-
-                <!-- Content Row -->
-                <div class="row">
-
-                    <div class="col-xl-3 col-lg-7" style="position: absolute; left: 40%">
-
-                        <!-- Area Chart -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Edytuj instytucję</h6>
-                            </div>
-                            <div class="card-body">
-
-                                <form:form method="post" modelAttribute="institution">
-
-                                    <div class="my-2">
-                                        <label>Podaj nazwę:
-                                            <form:input path="name"/>
-                                            <form:errors path="name" cssStyle="color: red"/>
-                                        </label>
-                                    </div>
-
-                                    <div class="my-2">
-                                        <label>Podaj opis:
-                                            <form:input path="description"/>
-                                            <form:errors path="description" cssStyle="color: red"/>
-                                        </label>
-                                    </div>
-
-
-                                    <div class="my-2">
-                                        <form:button type="submit" class="btn btn-warning btn-icon-split">
-                                        <span class="icon text-white-50">
-                                              <i class="fas fa-exclamation-triangle"></i>
-                                        </span>
-                                            <span class="text">Edytuj</span>
-                                        </form:button>
-                                    </div>
-
-                                </form:form>
-                            </div>
-                        </div>
-
-                    </div>
+                <!-- 404 Error Text -->
+                <div class="text-center">
+                    <div class="error mx-auto" data-text="Błąd" style="margin-left: 508px !important; color:red">Błąd</div>
+                    <div class="my-3"></div>
+                    <p class="lead text-gray-800 mb-5">Nie możesz usunąć sam siebie...</p>
+                    <p class="text-gray-500 mb-0">Spróbuj wykonać inną akcję.</p>
                 </div>
 
             </div>
+            <!-- /.container-fluid -->
 
         </div>
         <!-- End of Main Content -->
@@ -484,13 +441,6 @@
 
 <!-- Custom scripts for all pages-->
 <script src="../../../resources/admin-sb-2-resources-part/js/sb-admin-2.min.js"></script>
-
-<!-- Page level plugins -->
-<script src="../../../resources/admin-sb-2-resources-part/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="../../../resources/admin-sb-2-resources-part/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-<!-- Page level custom scripts -->
-<script src="../../../resources/admin-sb-2-resources-part/js/demo/datatables-demo.js"></script>
 
 </body>
 
