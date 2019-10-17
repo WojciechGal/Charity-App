@@ -35,12 +35,35 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
+    ///////////////////////////////////////////////////////////////
+    public void blockUser(User user) {
+        user.setEnabled(0);
+        userRepository.save(user);
+    }
+
+    public void unblockUser(User user) {
+        user.setEnabled(1);
+        userRepository.save(user);
+    }
+
     ////////////////////////////////////////////////////////////////
     public void saveAdmin(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setEnabled(1);
         Role userRole = roleRepository.findByName("ROLE_ADMIN");
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+        userRepository.save(user);
+    }
+
+    public void saveUserSimpleVersion(User user) {
+
+        userRepository.save(user);
+    }
+
+    public void saveUserSimpleVersionWithPasswordHash(User user) {
+
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
         userRepository.save(user);
     }
     ///////////////////////////////////////////////////////////////
