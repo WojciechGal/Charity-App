@@ -27,6 +27,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/users/check").authenticated()
                 .antMatchers("/").permitAll()
                 .antMatchers("/unloggedForm").not().authenticated()
+                .antMatchers("/users/updateRest").authenticated()
+                .antMatchers("/users/updatePass").authenticated()
                 .anyRequest().permitAll()
                 .and().formLogin()
                 .loginPage("/login").usernameParameter("email").successHandler(authenticationSuccessHandler).failureUrl("/login?error=fail")
