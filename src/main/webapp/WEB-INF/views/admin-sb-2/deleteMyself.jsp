@@ -380,7 +380,7 @@
 
                 <!-- 404 Error Text -->
                 <div class="text-center">
-                    <div class="error mx-auto" data-text="Błąd" style="margin-left: 508px !important; color:red">Błąd</div>
+                    <div class="error mx-auto" data-text="Błąd" style="margin-left: 507px !important; color:red">Błąd</div>
                     <div class="my-3"></div>
                     <p class="lead text-gray-800 mb-5">Nie możesz usunąć sam siebie...</p>
                     <p class="text-gray-500 mb-0">Spróbuj wykonać inną akcję.</p>
