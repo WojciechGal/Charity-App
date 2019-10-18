@@ -23,6 +23,12 @@ public class HomeController {
     @RequestMapping("/")
     public String homeAction(Model model){
 
+        extractionOfModelDonationAndInstitution(model, institutionService, donationService);
+
+        return "index";
+    }
+
+    public static void extractionOfModelDonationAndInstitution(Model model, InstitutionService institutionService, DonationService donationService) {
         List<Institution> institutions = institutionService.getAllInstitutions();
         model.addAttribute("institutions", institutions);
 
@@ -31,7 +37,5 @@ public class HomeController {
 
         Long allGivenQuantities = donationService.countAllQuantities();
         model.addAttribute("allQuant", allGivenQuantities);
-
-        return "index";
     }
 }
