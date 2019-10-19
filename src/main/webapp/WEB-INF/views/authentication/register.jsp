@@ -11,6 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Rejestracja</title>
     <link rel="stylesheet" href="../../../resources/css/style.css" />
+    <script src="../../../resources/js/passValid.js"></script>
 </head>
 <body>
 
