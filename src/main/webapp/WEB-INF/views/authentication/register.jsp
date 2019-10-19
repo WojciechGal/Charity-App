@@ -39,13 +39,13 @@
             </div>
         </div>
         <div class="form-group">
-            <form:input type="password" path="password" placeholder="Hasło" />
+            <form:input id="firstPass" type="password" path="password" placeholder="Hasło" />
             <div>
                 <form:errors path="password" cssStyle="color: red"/>
             </div>
         </div>
         <div class="form-group">
-            <input type="password" name="password2" placeholder="Powtórz hasło" />
+            <input id="secondPass" type="password" name="password2" placeholder="Powtórz hasło" />
         </div>
 
         <div class="form-group form-group--buttons">
