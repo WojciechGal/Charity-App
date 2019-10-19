@@ -5,7 +5,7 @@ import pl.coderslab.charity.role.Role;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.Pattern;
 import java.util.Set;
 
 @Entity
@@ -28,7 +28,7 @@ public class User {
     private String lastName;
 
     @NotBlank
-    @Size(min = 5)
+    @Pattern(regexp = "^(?=\\P{Ll}*\\p{Ll})(?=\\P{Lu}*\\p{Lu})(?=\\P{N}*\\p{N})(?=[\\p{L}\\p{N}]*[^\\p{L}\\p{N}])[\\s\\S]{8,}$")
     private String password;
 
     private int enabled;
