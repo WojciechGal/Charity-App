@@ -207,7 +207,7 @@
                         </div>
                     </div>
                 </div>
-
+                    <form:hidden path="status"/>
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
                     <form:button type="submit" class="btn">Potwierdzam</form:button>
