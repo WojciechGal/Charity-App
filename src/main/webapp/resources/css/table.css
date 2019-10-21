@@ -1,0 +1,17 @@
+th, td {
+    border: 1px solid black;
+    text-align: center;
+    margin: 0 auto 30px;
+    font-size: 1.8rem;
+    padding: 10px 15px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.lastTd {
+    border-bottom: hidden;
+    border-right: hidden;
+    border-top: hidden;
+}
