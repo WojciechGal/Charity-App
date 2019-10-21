@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.charity.donation.Donation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -35,7 +36,18 @@ public class InstitutionService {
         List<Institution> institutions = institutionRepository.findAll();
         institutions.forEach(ins -> {
             List<Donation> donations = ins.getDonations();
+
+            List<Donation> sendDonations = new ArrayList<>();
+
             if (donations.size() != 0) {
+                donations.forEach(d -> {
+                    if(d.getStatus() == 1) {
+                        sendDonations.add(d);
+                    }
+                });
+            }
+
+            if (sendDonations.size() != 0) {
                 tab[0]++;
             }
         });
