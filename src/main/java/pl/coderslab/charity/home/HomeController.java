@@ -35,7 +35,7 @@ public class HomeController {
         Long supportedInstitutions = institutionService.checkNumberOfSupportedInstitutions();
         model.addAttribute("suppInst", supportedInstitutions);
 
-        Long allGivenQuantities = donationService.countAllQuantities();
+        Long allGivenQuantities = donationService.countAllQuantitiesSend();
         model.addAttribute("allQuant", allGivenQuantities);
     }
 }
