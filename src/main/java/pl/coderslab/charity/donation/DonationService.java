@@ -3,6 +3,7 @@ package pl.coderslab.charity.donation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.coderslab.charity.user.User;
 
 import java.util.List;
 
@@ -34,7 +35,11 @@ public class DonationService {
         return donationRepository.findById(id).orElse(null);
     }
 
-    public Long countAllQuantities() {
-        return donationRepository.countAllQuantities();
+    public Long countAllQuantitiesSend() {
+        return donationRepository.countAllQuantitiesSend();
+    }
+
+    public List<Donation> findDonationsByUser(User user) {
+        return donationRepository.findAllByUser(user);
     }
 }
