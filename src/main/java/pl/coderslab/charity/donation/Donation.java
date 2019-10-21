@@ -14,6 +14,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,4 +67,24 @@ public class Donation {
     @ManyToOne
     private User user;
     //może być null (niezalogowany użytkownik)
+
+    @NotNull
+    private Integer status;
+
+    ///tylko jeden update, w którym użytkownik oznaczy, że przesyłka została odebrana
+    @Column(name = "received_on")
+    private LocalDateTime receivedOn;
+
+    @PreUpdate
+    public void preUpdate() {
+        receivedOn = LocalDateTime.now();
+    }
+
+    @Column(name = "created_on")
+    private LocalDateTime createdOn;
+
+    @PrePersist
+    public void prePersist() {
+        createdOn = LocalDateTime.now();
+    }
 }
