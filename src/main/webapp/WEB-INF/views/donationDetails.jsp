@@ -44,7 +44,7 @@
         </p>
         <p><span style="font-weight: bolder">Ilość worków: </span>${donation.quantity}</p>
         <c:if test="${donation.status == 0}">
-            <p><a href="/donationReceived/${donation.id}" class="btn btn--without-border"><span
+            <p><a href="/donationReceived" class="btn btn--without-border"><span
                     style="font-weight: bolder">Oznacz jako
                         odebrany</span></a></p>
         </c:if>
