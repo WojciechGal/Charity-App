@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import pl.coderslab.charity.category.Category;
 import pl.coderslab.charity.category.CategoryService;
 import pl.coderslab.charity.institution.Institution;
@@ -16,11 +17,13 @@ import pl.coderslab.charity.user.CurrentUser;
 import pl.coderslab.charity.user.User;
 import pl.coderslab.charity.user.UserService;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.Comparator;
 import java.util.List;
 
 @Controller
+@SessionAttributes("donation")
 public class DonationController {
 
     @Autowired
@@ -119,12 +122,12 @@ public class DonationController {
         return "/donationDetails";
     }
 
-    @GetMapping("/donationReceived/{id}")
-    public String donationReceived(@PathVariable Long id) {
-        Donation donation = donationService.findDonationById(id);
+    @GetMapping("/donationReceived")
+    public String donationReceived(HttpSession sess) {
+        Donation donation = (Donation) sess.getAttribute("donation");
         donation.setStatus(1);
         donationService.saveDonation(donation);
-        return "redirect:/donationDetails/" + id;
+        return "redirect:/donationDetails/" + donation.getId();
     }
 
     ////////////////////////////////////////////////////////////////////
