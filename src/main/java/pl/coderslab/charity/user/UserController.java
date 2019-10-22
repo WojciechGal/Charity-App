@@ -27,16 +27,26 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public String createUser(@Valid User user, BindingResult result) {
+    public String createUser(@Valid User user, BindingResult result, Model model) {
 
-        if(!user.getPassword().equals(user.getPassword2())){
-            FieldError err = new FieldError("user","password2","Hasło musi zostać poprawnie powtórzone");
+        if(!user.getPass1().equals(user.getPass2()) || "".equals(user.getPass2())){
+            FieldError err = new FieldError("user","pass2","Hasło musi zostać poprawnie powtórzone");
+            result.addError(err);
+        }
+
+        if (!user.getPass1().matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$")) {
+            FieldError err = new FieldError("user","pass1","Hasło musi zawierać co najmniej jedną wielką literę, jedną małą literę, cyfrę oraz znak specjalny");
             result.addError(err);
         }
 
         if (result.hasErrors()) {
+            user.setPass1("");
+            user.setPass2("");
+            model.addAttribute("user", user);
             return "authentication/register";
         }
+
+        user.setPassword(user.getPass1());
 
         userService.saveUser(user);
         return "redirect:/login";
