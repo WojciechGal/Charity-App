@@ -38,15 +38,15 @@
             </div>
         </div>
         <div class="form-group">
-            <form:input type="password" path="password" placeholder="Hasło" />
+            <form:input type="password" path="pass1" placeholder="Hasło" />
             <div>
-                <form:errors path="password" cssStyle="color: red"/>
+                <form:errors path="pass1" cssStyle="color: red"/>
             </div>
         </div>
         <div class="form-group">
-            <form:input type="password" path="password2" placeholder="Powtórz hasło" />
+            <form:input type="password" path="pass2" placeholder="Powtórz hasło" />
             <div>
-                <form:errors path="password2" cssStyle="color: red"/>
+                <form:errors path="pass2" cssStyle="color: red"/>
             </div>
         </div>
 
