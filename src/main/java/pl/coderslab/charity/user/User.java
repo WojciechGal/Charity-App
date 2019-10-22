@@ -27,8 +27,9 @@ public class User {
     @NotBlank
     private String lastName;
 
-    @NotBlank
-    @Pattern(regexp = "^(?=\\P{Ll}*\\p{Ll})(?=\\P{Lu}*\\p{Lu})(?=\\P{N}*\\p{N})(?=[\\p{L}\\p{N}]*[^\\p{L}\\p{N}])[\\s\\S]{8,}$")
+// walidacja hasła natępuje w mini-DTO w user controller
+//    @NotBlank
+//    @Pattern(regexp = "^(?=\\P{Ll}*\\p{Ll})(?=\\P{Lu}*\\p{Lu})(?=\\P{N}*\\p{N})(?=[\\p{L}\\p{N}]*[^\\p{L}\\p{N}])[\\s\\S]{8,}$")
     private String password;
 
     private int enabled;
@@ -40,7 +41,10 @@ public class User {
     private Set<Role> roles;
 
     @Transient
-    private String password2;
+    private String pass1;
+
+    @Transient
+    private String pass2;
 
     public Long getId() {
         return id;
@@ -98,11 +102,20 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getPassword2() {
-        return password2;
+    public String getPass2() {
+        return pass2;
     }
 
-    public void setPassword2(String password2) {
-        this.password2 = password2;
+    public void setPass2(String password2) {
+        this.pass2 = password2;
     }
+
+    public String getPass1() {
+        return pass1;
+    }
+
+    public void setPass1(String pass1) {
+        this.pass1 = pass1;
+    }
+
 }
