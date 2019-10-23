@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,11 +41,20 @@ public class AdminUsersController {
     }
 
     @PostMapping("/updateUser/{id}")
-    public String updateUser(@Valid User user, BindingResult result) {
+    public String updateUser(@Valid User user, BindingResult result, Model model) {
+
+        if (!user.getPass1().matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$")) {
+            FieldError err = new FieldError("user","pass1","Hasło musi zawierać co najmniej jedną wielką literę, jedną małą literę, cyfrę oraz znak specjalny");
+            result.addError(err);
+        }
 
         if (result.hasErrors()) {
+            user.setPass1("");
+            model.addAttribute("user", user);
             return "admin-sb-2/updateUser";
         }
+
+        user.setPassword(user.getPass1());
 
         userService.saveUser(user);
         return "redirect:/admin/users";
