@@ -428,9 +428,9 @@
 
                                     <div class="my-2">
                                         <label>Podaj hasło:
-                                            <form:password path="password"/>
+                                            <form:password path="pass1"/>
                                             <div>
-                                                <form:errors path="password" cssStyle="color: red"/>
+                                                <form:errors path="pass1" cssStyle="color: red"/>
                                             </div>
                                         </label>
                                     </div>
