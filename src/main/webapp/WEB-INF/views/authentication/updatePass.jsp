@@ -20,9 +20,15 @@
     <h2>Zmień hasło</h2>
     <form:form method="post" modelAttribute="user">
         <div class="form-group">
-            <form:input type="password" path="password"/>
+            <form:input type="password" path="pass1" placeholder="Hasło"/>
             <div>
-                <form:errors path="password" cssStyle="color: red"/>
+                <form:errors path="pass1" cssStyle="color: red"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <form:input type="password" path="pass2" placeholder="Powtórz hasło"/>
+            <div>
+                <form:errors path="pass2" cssStyle="color: red"/>
             </div>
         </div>
         <div>
@@ -31,6 +37,7 @@
             <form:hidden path="enabled" value="${user.enabled}"/>
             <form:hidden path="lastName" value="${user.lastName}"/>
             <form:hidden path="name" value="${user.name}"/>
+            <form:hidden path="password" value="${user.password}"/>
         </div>
 
         <div class="form-group form-group--buttons">
